@@ -1,0 +1,47 @@
+<section id="skills" class="skills-section">
+  <div class="container">
+    <span class="section-tag">// 02. Technical Arsenal</span>
+    <h2 class="section-title">Skills & Technologies</h2>
+    <p class="section-desc">
+      Verified technologies demonstrated across real projects, enterprise testing, and system development.
+    </p>
+
+    <!-- Static Categorized Groups (Profile Standard) -->
+    <div class="skills-grid">
+      @for (group of skillGroups; track group.category) {
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <h3>{{ group.category }}</h3>
+            <span class="skill-count">{{ group.skills.length }} skills</span>
+          </div>
+          <p class="group-desc">{{ group.description }}</p>
+          <div class="pill-list">
+            @for (skill of group.skills; track skill) {
+              <span class="skill-pill">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Live Database Registered Technologies (From Backend API) -->
+    @if (apiTechnologies().length > 0) {
+      <div class="api-tech-box">
+        <div class="api-tech-header">
+          <span class="live-indicator"></span>
+          <h4>Synced from Database via Portfolio.API (<code>GET /api/technologies</code>)</h4>
+        </div>
+        <div class="api-tech-pills">
+          @for (tech of apiTechnologies(); track tech.id) {
+            <span class="badge">
+              {{ tech.name }}
+              @if (tech.category) {
+                <small>({{ tech.category }})</small>
+              }
+            </span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

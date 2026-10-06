@@ -1,0 +1,98 @@
+.projects-section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+.project-card:hover {
+  border-color: rgba(59, 130, 246, 0.45);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.project-card.featured-card {
+  grid-column: 1 / -1;
+  border-color: rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.15) 0%, var(--bg-surface) 60%);
+  position: relative;
+}
+.project-card.featured-card::before {
+  content: '★ CORE RESUME SHOWCASE';
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+  background: rgba(59, 130, 246, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  pointer-events: none;
+}
+.project-img-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background-color: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.project-card:hover .project-img {
+  transform: scale(1.03);
+}
+.project-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.project-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,42 @@
+<section id="education" class="education-section">
+  <div class="container">
+    <span class="section-tag">// 05. Academic Background</span>
+    <h2 class="section-title">Education & Qualifications</h2>
+    <p class="section-desc">
+      Formal academic foundation in Computer Science, software engineering fundamentals, and computer applications.
+    </p>
+
+    <div class="education-grid">
+      @for (item of educationList; track item.degree) {
+        <div class="education-card" [class.featured-card]="item.isOngoing">
+          <div class="card-header">
+            <div class="degree-info">
+              <div class="title-row">
+                <h3 class="degree-title">{{ item.degree }}</h3>
+                @if (item.isOngoing) {
+                  <span class="badge badge-ongoing">In Progress</span>
+                }
+              </div>
+              <h4 class="institution-name">{{ item.institution }}</h4>
+              @if (item.location) {
+                <span class="location-text">📍 {{ item.location }}</span>
+              }
+            </div>
+            <div class="year-badge">{{ item.year }}</div>
+          </div>
+
+          @if (item.grade) {
+            <div class="grade-pill">
+              <span class="grade-label">Academic Score:</span>
+              <span class="grade-value">{{ item.grade }}</span>
+            </div>
+          }
+
+          @if (item.highlight) {
+            <p class="education-desc">{{ item.highlight }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

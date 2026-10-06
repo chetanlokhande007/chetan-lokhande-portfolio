@@ -1,0 +1,111 @@
+.experience-section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 900px;
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-marker {
+  position: absolute;
+  left: calc(-2rem - 6px);
+  top: 1.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+}
+.timeline-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: border-color var(--transition-fast);
+}
+.timeline-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+.type-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+.badge-dev {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+.badge-test {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.timeline-context {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  margin-bottom: 1rem;
+}
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+.resp-list {
+  list-style-type: none;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.resp-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.resp-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+}
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 1.25rem;
+  }
+  .timeline-marker {
+    left: calc(-1.25rem - 6px);
+  }
+  .timeline-card {
+    padding: 1.5rem;
+  }
+}

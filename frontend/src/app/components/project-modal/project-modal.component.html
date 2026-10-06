@@ -1,0 +1,102 @@
+@if (project) {
+  <div class="modal-backdrop" (click)="onClose()" role="dialog" aria-modal="true" [attr.aria-label]="project.title">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <header class="modal-header">
+        <div>
+          <span class="badge badge-featured">Case Study & Architecture</span>
+          <h3 class="modal-title">{{ project.title }}</h3>
+        </div>
+        <button class="close-btn" (click)="onClose()" aria-label="Close modal">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        @if (project.imageUrl) {
+          <div class="modal-image-wrapper">
+            <img [src]="project.imageUrl" [alt]="project.title" class="modal-img" />
+          </div>
+        }
+
+        <div class="detail-section">
+          <h4>Overview & Problem Solved</h4>
+          <p class="project-full-desc">{{ project.description || project.shortDescription }}</p>
+        </div>
+
+        <div class="detail-section">
+          <h4>Engineering Architecture Visualization</h4>
+          <div class="architecture-diagram">
+            <div class="arch-tier">
+              <span class="arch-layer">Presentation Tier</span>
+              <span class="arch-tech">Angular Single Page Application (SPA)</span>
+              <span class="arch-sub">TypeScript • Reusable Components • Reactive Routing</span>
+            </div>
+            <div class="arch-flow">
+              <span class="flow-arrow">▼</span>
+              <span class="flow-label">HTTP / REST (JSON)</span>
+            </div>
+            <div class="arch-tier">
+              <span class="arch-layer">API Gateway Tier</span>
+              <span class="arch-tech">ASP.NET Core Web API</span>
+              <span class="arch-sub">Controllers • DTOs • Model Validation • Swagger OpenAPI</span>
+            </div>
+            <div class="arch-flow">
+              <span class="flow-arrow">▼</span>
+              <span class="flow-label">Dependency Injection</span>
+            </div>
+            <div class="arch-tier">
+              <span class="arch-layer">Business Access Layer (BAL)</span>
+              <span class="arch-tech">Business Logic Services</span>
+              <span class="arch-sub">Calculations • Validation Rules • Service Contracts</span>
+            </div>
+            <div class="arch-flow">
+              <span class="flow-arrow">▼</span>
+              <span class="flow-label">Interface Contracts</span>
+            </div>
+            <div class="arch-tier">
+              <span class="arch-layer">Data Access Layer (DAL)</span>
+              <span class="arch-tech">Entity Framework Core ORM</span>
+              <span class="arch-sub">Repositories • Fluent API Mappings • PostgreSQL / SQL Server</span>
+            </div>
+          </div>
+        </div>
+
+        @if (project.technologies && project.technologies.length > 0) {
+          <div class="detail-section">
+            <h4>Technology Stack</h4>
+            <div class="modal-tags">
+              @for (tech of project.technologies; track tech.id) {
+                <span class="badge">{{ tech.name }}</span>
+              }
+            </div>
+          </div>
+        }
+
+        <div class="modal-meta-grid">
+          <div>
+            <span class="meta-label">Architecture Pattern:</span>
+            <span class="meta-value">Decoupled N-Tier (Clean Architecture)</span>
+          </div>
+          <div>
+            <span class="meta-label">API Resource Identifier:</span>
+            <span class="meta-value"><code>api/projects/{{ project.slug }}</code></span>
+          </div>
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        <div class="modal-actions">
+          @if (project.githubUrl) {
+            <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              View Source (GitHub)
+            </a>
+          }
+          @if (project.liveUrl) {
+            <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              Live Demo
+            </a>
+          }
+        </div>
+        <button class="btn btn-secondary btn-sm" (click)="onClose()">Close</button>
+      </footer>
+    </div>
+  </div>
+}

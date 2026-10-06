@@ -1,0 +1,55 @@
+# ─────────────────────────────────────────────
+# .NET Build Output
+# ─────────────────────────────────────────────
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ─────────────────────────────────────────────
+# Secrets — NEVER commit these
+# ─────────────────────────────────────────────
+.env
+.env.*
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# appsettings.json IS committed (no secrets allowed in it)
+# appsettings.example.json IS committed (placeholder values only)
+
+# ─────────────────────────────────────────────
+# Node / Angular
+# ─────────────────────────────────────────────
+node_modules/
+dist/
+.angular/
+*.js.map
+
+# ─────────────────────────────────────────────
+# IDE
+# ─────────────────────────────────────────────
+.vs/
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.user
+
+# ─────────────────────────────────────────────
+# OS
+# ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─────────────────────────────────────────────
+# Test Output
+# ─────────────────────────────────────────────
+TestResults/
+coverage/
+*.coverage
+*.coveragexml

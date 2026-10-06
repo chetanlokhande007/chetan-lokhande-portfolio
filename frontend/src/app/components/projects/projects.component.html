@@ -1,0 +1,100 @@
+<section id="projects" class="projects-section">
+  <div class="container">
+    <span class="section-tag">// 03. Selected Works</span>
+    <h2 class="section-title">Projects & Case Studies</h2>
+    <p class="section-desc">
+      Live-fetched from <code>Portfolio.API</code> via Entity Framework Core & PostgreSQL. 
+      Each project reflects end-to-end full stack architecture.
+    </p>
+
+    <!-- Loading State -->
+    @if (isLoading()) {
+      <div class="loading-box" role="status" aria-live="polite">
+        <div class="spinner"></div>
+        <p>Loading projects from API...</p>
+      </div>
+    }
+
+    <!-- Error State -->
+    @if (!isLoading() && errorMessage()) {
+      <div class="error-banner" role="alert">
+        <div>
+          <strong>Service Notice:</strong> {{ errorMessage() }}
+        </div>
+        <button class="btn btn-outline btn-sm" (click)="loadProjects()">Retry</button>
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!isLoading() && !errorMessage() && projects().length === 0) {
+      <div class="empty-state">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.75rem; color: var(--text-muted)">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <p>No projects available yet.</p>
+        <small style="color: var(--text-muted)">Projects added via PostgreSQL will display here automatically.</small>
+      </div>
+    }
+
+    <!-- Projects Grid -->
+    @if (!isLoading() && !errorMessage() && projects().length > 0) {
+      <div class="projects-grid">
+        @for (project of projects(); track project.id) {
+          <article class="project-card" [class.featured-card]="project.isFeatured">
+            @if (project.imageUrl) {
+              <div class="project-img-container">
+                <img [src]="project.imageUrl" [alt]="project.title" class="project-img" loading="lazy" />
+              </div>
+            }
+
+            <div class="project-body">
+              <div class="project-header">
+                <h3 class="project-title">{{ project.title }}</h3>
+                @if (project.isFeatured) {
+                  <span class="badge badge-featured">Featured</span>
+                }
+              </div>
+
+              <p class="project-desc">{{ project.shortDescription }}</p>
+
+              <!-- Tech Badges -->
+              @if (project.technologies && project.technologies.length > 0) {
+                <div class="project-tech-tags">
+                  @for (tech of project.technologies; track tech.id) {
+                    <span class="badge">{{ tech.name }}</span>
+                  }
+                </div>
+              }
+
+              <!-- Actions -->
+              <div class="project-actions">
+                <button class="btn btn-secondary btn-sm" (click)="openDetails(project)">
+                  Details & Arch
+                </button>
+
+                @if (project.githubUrl) {
+                  <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="GitHub Repository">
+                    GitHub
+                  </a>
+                }
+
+                @if (project.liveUrl) {
+                  <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" aria-label="Live Demo">
+                    Live Demo
+                  </a>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Project Details Modal -->
+  @if (selectedProject()) {
+    <app-project-modal [project]="selectedProject()" (close)="closeDetails()"></app-project-modal>
+  }
+</section>

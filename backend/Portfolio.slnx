@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Portfolio.API/Portfolio.API.csproj" />
+  <Project Path="Portfolio.BAL/Portfolio.BAL.csproj" />
+  <Project Path="Portfolio.DAL/Portfolio.DAL.csproj" />
+  <Project Path="Portfolio.Model/Portfolio.Model.csproj" />
+  <Project Path="Portfolio.Tests/Portfolio.Tests.csproj" />
+</Solution>
