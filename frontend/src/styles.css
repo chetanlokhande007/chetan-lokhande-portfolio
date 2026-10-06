@@ -1,35 +1,71 @@
-/* Modern Engineering Design System */
+/* ==========================================================================
+   Design System - Chetan Lokhande Portfolio
+   Dual-tone modern developer aesthetic inspired by target UI
+   ========================================================================== */
+
 :root {
-  --bg-primary: #0a0e17;
-  --bg-surface: #111827;
-  --bg-surface-elevated: #1f2937;
-  --bg-surface-hover: #263345;
-  --border-subtle: #1f293d;
-  --border-focus: #3b82f6;
+  /* Dark Navy Primary Theme (Header, Hero, Projects, Footer) */
+  --bg-navy-dark: #0a1128;
+  --bg-navy-deep: #060b19;
+  --bg-navy-card: #101a38;
+  --bg-navy-card-hover: #15224a;
+  --bg-navy-elevated: #1a2754;
+  --border-navy: #1e2c56;
+  --border-navy-light: #2b3d75;
   
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
+  /* Light Theme Sections (About, Skills, Experience & Education, Contact) */
+  --bg-light-section: #f8fafc;
+  --bg-light-card: #ffffff;
+  --bg-light-card-hover: #f1f5f9;
+  --border-light: #e2e8f0;
+  --border-light-hover: #cbd5e1;
   
-  --accent-primary: #3b82f6;
-  --accent-primary-hover: #2563eb;
-  --accent-emerald: #10b981;
+  /* Text Colors */
+  --text-white: #ffffff;
+  --text-navy-primary: #f1f5f9;
+  --text-navy-secondary: #94a3b8;
+  --text-navy-muted: #64748b;
+  
+  --text-dark-primary: #0f172a;
+  --text-dark-secondary: #334155;
+  --text-dark-muted: #64748b;
+  
+  /* Brand Accents */
+  --accent-blue: #2563eb;
+  --accent-blue-hover: #1d4ed8;
+  --accent-blue-light: #3b82f6;
+  --accent-blue-subtle: rgba(37, 99, 235, 0.12);
   --accent-cyan: #06b6d4;
+  --accent-cyan-light: #38bdf8;
+  --accent-emerald: #10b981;
   --accent-purple: #8b5cf6;
+  --accent-orange: #f97316;
+  --accent-rose: #ec4899;
   
+  /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   
+  /* Border Radii */
+  --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
   
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 12px 24px -4px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.06);
+  --shadow-dark-card: 0 8px 24px -4px rgba(0, 0, 0, 0.4);
+  --shadow-blue-glow: 0 0 25px rgba(37, 99, 235, 0.35);
+  --shadow-cyan-glow: 0 0 25px rgba(6, 182, 212, 0.3);
   
+  /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s ease;
 }
 
 *, *::before, *::after {
@@ -41,132 +77,237 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--bg-navy-dark);
+  color: var(--text-navy-primary);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-navy-dark);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 /* Container */
 .container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* Typography Utilities */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Section Header Typography */
 .section-tag {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--accent-cyan);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-blue);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+}
+
+.section-tag-dark {
+  color: var(--accent-cyan-light);
 }
 
 .section-title {
   font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.section-title-light {
+  color: var(--text-dark-primary);
+}
+
+.section-title-dark {
+  color: var(--text-white);
 }
 
 .section-desc {
   font-size: 1.05rem;
-  color: var(--text-secondary);
   max-width: 650px;
-  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  margin-bottom: 2.75rem;
 }
 
-/* Buttons */
+.section-desc-light {
+  color: var(--text-dark-muted);
+}
+
+.section-desc-dark {
+  color: var(--text-navy-secondary);
+}
+
+/* Button Component Hierarchy */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  font-family: var(--font-sans);
+  gap: 0.55rem;
   font-size: 0.95rem;
   font-weight: 600;
   padding: 0.75rem 1.4rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   cursor: pointer;
   transition: all var(--transition-fast);
-  text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-primary {
-  background-color: var(--accent-primary);
+  background-color: var(--accent-blue);
   color: #ffffff;
-  border-color: var(--accent-primary);
+  border-color: var(--accent-blue);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-primary-hover);
-  border-color: var(--accent-primary-hover);
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+  background-color: var(--accent-blue-hover);
+  border-color: var(--accent-blue-hover);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.45);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background-color: var(--bg-surface-elevated);
-  color: var(--text-primary);
-  border-color: var(--border-subtle);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-white);
+  border-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-surface-hover);
-  border-color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 .btn-outline {
   background-color: transparent;
-  color: var(--text-primary);
-  border-color: var(--border-subtle);
+  color: var(--text-white);
+  border-color: var(--border-navy-light);
 }
 
 .btn-outline:hover {
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
+  border-color: var(--accent-blue);
+  color: var(--accent-cyan-light);
+  background-color: rgba(37, 99, 235, 0.08);
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--text-dark-primary);
+  border-color: var(--border-light);
+}
+
+.btn-outline-dark:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  background-color: var(--accent-blue-subtle);
 }
 
 .btn-sm {
-  padding: 0.45rem 0.85rem;
+  padding: 0.45rem 0.9rem;
   font-size: 0.85rem;
+  border-radius: var(--radius-sm);
 }
 
-/* Badges */
+/* Badge Utilities */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 500;
-  font-family: var(--font-mono);
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: rgba(37, 99, 235, 0.12);
   color: #93c5fd;
   border: 1px solid rgba(59, 130, 246, 0.25);
 }
 
 .badge-featured {
-  background-color: rgba(16, 185, 129, 0.12);
+  background-color: rgba(16, 185, 129, 0.15);
   color: #6ee7b7;
   border-color: rgba(16, 185, 129, 0.3);
+}
+
+.badge-light {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+/* Social Icon Button */
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-navy);
+  color: var(--text-navy-secondary);
+  transition: all var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  background-color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* Experience & Education Unified Wrapper */
+.experience-education-section {
+  background-color: var(--bg-light-section);
+  padding: 5.5rem 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.exp-edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+}
+
+@media (max-width: 992px) {
+  .exp-edu-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
 }
 
 /* Loading & State Utilities */
@@ -176,16 +317,16 @@ a {
   align-items: center;
   justify-content: center;
   padding: 4rem 1rem;
-  color: var(--text-secondary);
+  color: var(--text-navy-secondary);
   gap: 1rem;
 }
 
 .spinner {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border: 3px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  border-top-color: var(--accent-primary);
+  border-top-color: var(--accent-blue);
   animation: spin 0.8s linear infinite;
 }
 
@@ -208,8 +349,24 @@ a {
 .empty-state {
   text-align: center;
   padding: 3.5rem 1rem;
-  background-color: var(--bg-surface);
-  border: 1px dashed var(--border-subtle);
+  background-color: var(--bg-navy-card);
+  border: 1px dashed var(--border-navy);
   border-radius: var(--radius-md);
-  color: var(--text-secondary);
+  color: var(--text-navy-secondary);
+}
+
+/* Accessibility: Focus Visible */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent-blue-light);
+  outline-offset: 2px;
+}
+
+/* Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

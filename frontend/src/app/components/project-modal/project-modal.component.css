@@ -2,8 +2,9 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.82);
-  backdrop-filter: blur(6px);
+  background-color: rgba(5, 10, 24, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,52 +12,55 @@
 }
 
 .modal-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  background-color: var(--bg-navy-card);
+  border: 1px solid var(--border-navy-light);
+  border-radius: var(--radius-xl);
   max-width: 720px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 88vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
   animation: modalFadeIn 0.22s ease-out;
+  overflow: hidden;
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .modal-header {
   padding: 1.5rem 1.75rem;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-navy);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+  background-color: rgba(10, 17, 40, 0.6);
 }
 
 .modal-title {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #ffffff;
   margin-top: 0.35rem;
+  letter-spacing: -0.01em;
 }
 
 .close-btn {
   background: none;
   border: none;
-  font-size: 1.75rem;
-  color: var(--text-muted);
+  font-size: 1.85rem;
+  color: var(--text-navy-muted);
   cursor: pointer;
   line-height: 1;
-  padding: 0 0.5rem;
+  padding: 0 0.4rem;
   transition: color var(--transition-fast);
 }
 
 .close-btn:hover {
-  color: var(--text-main);
+  color: #ffffff;
 }
 
 .modal-body {
@@ -64,13 +68,14 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .modal-image-wrapper {
   border-radius: var(--radius-md);
   overflow: hidden;
-  max-height: 250px;
+  max-height: 240px;
+  border: 1px solid var(--border-navy);
 }
 
 .modal-img {
@@ -81,9 +86,9 @@
 }
 
 .detail-section h4 {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--accent-cyan-light);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.65rem;
@@ -91,10 +96,10 @@
 }
 
 .project-full-desc {
-  color: var(--text-muted);
-  line-height: 1.7;
+  color: var(--text-navy-secondary);
+  line-height: 1.75;
   white-space: pre-line;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
 }
 
 /* Architecture Diagram */
@@ -102,16 +107,16 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  background: var(--bg-surface-elevated);
+  background: #090e1d;
   padding: 1.25rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-navy);
 }
 
 .arch-tier {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-left: 3px solid var(--primary);
+  background: var(--bg-navy-card);
+  border: 1px solid var(--border-navy);
+  border-left: 3px solid var(--accent-blue);
   border-radius: var(--radius-sm);
   padding: 0.75rem 1rem;
   display: flex;
@@ -121,13 +126,13 @@
 }
 
 .arch-tier:hover {
-  border-color: var(--border-focus);
+  border-color: var(--accent-blue-light);
 }
 
 .arch-layer {
   font-size: 0.72rem;
   font-family: var(--font-mono);
-  color: var(--text-muted);
+  color: var(--accent-cyan-light);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -135,12 +140,12 @@
 .arch-tech {
   font-size: 0.92rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #ffffff;
 }
 
 .arch-sub {
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--text-navy-muted);
 }
 
 .arch-flow {
@@ -151,11 +156,11 @@
   padding: 0.2rem 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--text-navy-muted);
 }
 
 .flow-arrow {
-  color: var(--primary);
+  color: var(--accent-blue-light);
   font-size: 0.75rem;
 }
 
@@ -166,44 +171,45 @@
 .modal-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .modal-meta-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  background-color: var(--bg-surface-elevated);
+  background-color: #090e1d;
   padding: 1rem 1.25rem;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-navy);
   font-size: 0.85rem;
 }
 
 .meta-label {
-  color: var(--text-muted);
+  color: var(--text-navy-muted);
   display: block;
   font-size: 0.78rem;
   margin-bottom: 0.2rem;
 }
 
 .meta-value {
-  color: var(--text-main);
+  color: #ffffff;
   font-weight: 600;
 }
 
 .meta-value code {
   font-family: var(--font-mono);
-  color: var(--primary);
+  color: var(--accent-cyan-light);
 }
 
 .modal-footer {
   padding: 1.25rem 1.75rem;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-navy);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  background-color: rgba(10, 17, 40, 0.6);
 }
 
 .modal-actions {

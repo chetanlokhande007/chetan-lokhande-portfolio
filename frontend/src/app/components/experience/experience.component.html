@@ -1,40 +1,40 @@
-<section id="experience" class="experience-section">
-  <div class="container">
-    <span class="section-tag">// 04. Practical Exposure</span>
-    <h2 class="section-title">Experience & Demonstrations</h2>
-    <p class="section-desc">
-      Honest distinction of hands-on software development versus real-world testing and cloud debugging.
-    </p>
+<div class="experience-column">
+  <span class="section-tag">EXPERIENCE</span>
+  <h2 class="section-title section-title-light">My Professional Journey</h2>
 
-    <div class="timeline">
-      @for (item of experiences; track item.context) {
-        <div class="timeline-item">
-          <div class="timeline-marker"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <div>
-                <span [class]="'type-badge ' + item.badgeClass">{{ item.type }}</span>
-                <h3 class="timeline-title">{{ item.role }}</h3>
-                <h4 class="timeline-context">{{ item.context }}</h4>
-              </div>
-            </div>
+  <div class="experience-timeline">
+    @for (item of experiences; track item.role) {
+      <div class="experience-item">
+        <div class="experience-icon-wrapper">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+        </div>
 
-            <p class="timeline-desc">{{ item.description }}</p>
-
-            <ul class="resp-list">
-              @for (resp of item.responsibilities; track resp) {
-                <li>{{ resp }}</li>
-              }
-            </ul>
-
-            <div class="tech-pills">
-              @for (tech of item.technologies; track tech) {
-                <span class="badge">{{ tech }}</span>
-              }
+        <div class="experience-card">
+          <div class="experience-header">
+            <div>
+              <h3 class="experience-role">{{ item.role }}</h3>
+              <h4 class="experience-company">{{ item.context }}</h4>
             </div>
           </div>
+
+          <p class="experience-desc">{{ item.description }}</p>
+
+          <ul class="experience-responsibilities">
+            @for (resp of item.responsibilities; track resp) {
+              <li>{{ resp }}</li>
+            }
+          </ul>
+
+          <div class="experience-tech-tags">
+            @for (tech of item.technologies; track tech) {
+              <span class="badge badge-light">{{ tech }}</span>
+            }
+          </div>
         </div>
-      }
-    </div>
+      </div>
+    }
   </div>
-</section>
+</div>

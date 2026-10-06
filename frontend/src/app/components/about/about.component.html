@@ -1,54 +1,75 @@
 <section id="about" class="about-section">
   <div class="container">
-    <span class="section-tag">// 01. About Me</span>
-    <h2 class="section-title">Engineering Mindset & Background</h2>
-    <p class="section-desc">
-      Focused on structured architecture, reliable data flow, and modern web applications.
-    </p>
-
     <div class="about-grid">
-      <div class="about-card main-text">
-        <h3>Who I Am & What I Build</h3>
-        <p>
-          I am an <strong>ASP.NET Full Stack Developer</strong> with hands-on experience designing 
-          and implementing end-to-end web applications. My development work centers on writing clean, 
-          maintainable C# on the backend with ASP.NET Core and crafting responsive, component-driven 
-          interfaces using Angular and TypeScript.
-        </p>
-        <p>
-          Rather than treating applications as simple prototypes, I build with production fundamentals in mind:
-          <strong>N-Tier Architecture</strong>, strict separation of concerns, strongly-typed DTOs to avoid leaking entities, 
-          safe database migrations with EF Core, and automated testing via xUnit.
-        </p>
-        <p>
-          Currently working as a Full Stack Developer Intern at RBIS Technology Pvt. Ltd., I focus on 
-          building robust database-driven systems, developing clean business logic layers, and delivering 
-          seamless, type-safe user experiences.
-        </p>
+      <!-- Left Column: Portrait Card -->
+      <div class="about-portrait-wrapper">
+        <div class="about-card-image">
+          <img 
+            src="chetan-lokhande.jpg" 
+            alt="Chetan Lokhande" 
+            class="about-img"
+            loading="lazy"
+          />
+        </div>
       </div>
 
-      <div class="about-highlights">
-        <div class="highlight-box">
-          <div class="highlight-number">01</div>
-          <div class="highlight-info">
-            <h4>Layered Architecture</h4>
-            <p>Strict N-Tier separation (API &rarr; BAL &rarr; DAL &rarr; PostgreSQL) for maintainable codebases.</p>
-          </div>
+      <!-- Right Column: Narrative & Info Blocks -->
+      <div class="about-content">
+        <span class="section-tag">ABOUT ME</span>
+        <h2 class="section-title section-title-light">Let's Build Something Great</h2>
+
+        <div class="about-paragraphs">
+          <p>
+            I'm a Software Developer with a strong interest in full-stack development, 
+            backend systems, databases and cloud technologies. I like working on real-world 
+            projects that solve practical problems.
+          </p>
+          <p>
+            I have hands-on experience in building web applications, integrating APIs, 
+            working with databases and deploying applications to the cloud. I am always eager 
+            to learn new technologies and improve my skills.
+          </p>
         </div>
 
-        <div class="highlight-box">
-          <div class="highlight-number">02</div>
-          <div class="highlight-info">
-            <h4>API & Data Integrity</h4>
-            <p>RESTful standards, robust input validation, EF Core Fluent API, and foreign key constraints.</p>
+        <!-- 3 Info Blocks: Education, Location, Interests -->
+        <div class="about-info-blocks">
+          <div class="info-block">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="info-details">
+              <h3 class="info-title">Education</h3>
+              <p class="info-value">MCA - Master of Computer Applications</p>
+            </div>
           </div>
-        </div>
 
-        <div class="highlight-box">
-          <div class="highlight-number">03</div>
-          <div class="highlight-info">
-            <h4>Verification & Testing</h4>
-            <p>Unit testing with xUnit and Moq, API payload validation, and thorough regression testing.</p>
+          <div class="info-block">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="info-details">
+              <h3 class="info-title">Location</h3>
+              <p class="info-value">Pune, Maharashtra, India</p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="info-details">
+              <h3 class="info-title">Interests</h3>
+              <p class="info-value">Web Development, Backend Development, Cloud, Open Source</p>
+            </div>
           </div>
         </div>
       </div>

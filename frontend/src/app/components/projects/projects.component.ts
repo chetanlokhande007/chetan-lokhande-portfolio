@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectService } from '../../core/services/project.service';
 import { Project } from '../../core/models/project.model';
@@ -34,10 +34,11 @@ export class ProjectsComponent implements OnInit {
       isPublished: true,
       displayOrder: 1,
       createdAt: '2026-01-15T00:00:00Z',
+      githubUrl: 'https://github.com/chetanlokhande007',
       technologies: [
         { id: 1, name: 'Angular', category: 'Frontend' },
         { id: 2, name: 'TypeScript', category: 'Frontend' },
-        { id: 3, name: 'ASP.NET Core Web API', category: 'Backend' },
+        { id: 3, name: 'ASP.NET Core', category: 'Backend' },
         { id: 4, name: 'C#', category: 'Language' },
         { id: 5, name: 'Entity Framework Core', category: 'Backend' },
         { id: 6, name: 'SQL Server', category: 'Database' },
@@ -54,13 +55,13 @@ export class ProjectsComponent implements OnInit {
       isPublished: true,
       displayOrder: 2,
       createdAt: '2026-02-10T00:00:00Z',
+      githubUrl: 'https://github.com/chetanlokhande007',
       technologies: [
         { id: 1, name: 'Angular', category: 'Frontend' },
         { id: 2, name: 'TypeScript', category: 'Frontend' },
-        { id: 3, name: 'ASP.NET Core Web API', category: 'Backend' },
-        { id: 4, name: 'C#', category: 'Language' },
-        { id: 6, name: 'SQL Server', category: 'Database' },
-        { id: 8, name: 'JWT Authentication', category: 'Security' }
+        { id: 3, name: 'ASP.NET Core', category: 'Backend' },
+        { id: 6, name: 'PostgreSQL', category: 'Database' },
+        { id: 8, name: 'JWT Auth', category: 'Security' }
       ]
     },
     {
@@ -73,17 +74,45 @@ export class ProjectsComponent implements OnInit {
       isPublished: true,
       displayOrder: 3,
       createdAt: '2026-03-01T00:00:00Z',
+      githubUrl: 'https://github.com/chetanlokhande007',
       technologies: [
         { id: 1, name: 'Angular', category: 'Frontend' },
-        { id: 2, name: 'TypeScript', category: 'Frontend' },
-        { id: 3, name: 'ASP.NET Core Web API', category: 'Backend' },
-        { id: 4, name: 'C#', category: 'Language' },
-        { id: 6, name: 'SQL Server', category: 'Database' },
-        { id: 8, name: 'JWT Authentication', category: 'Security' },
-        { id: 9, name: 'Google Geolocation APIs', category: 'Integration' }
+        { id: 3, name: 'ASP.NET Core', category: 'Backend' },
+        { id: 6, name: 'PostgreSQL', category: 'Database' },
+        { id: 9, name: 'Google APIs', category: 'Integration' }
+      ]
+    },
+    {
+      id: 4,
+      title: 'Portfolio Architecture & Engineering Showcase',
+      slug: 'portfolio-architecture',
+      shortDescription: 'Full-stack developer portfolio engineered with Angular 21, ASP.NET Core Web API, EF Core Code-First, and automated xUnit test suites.',
+      description: 'Engineered personal developer portfolio demonstrating production-grade software patterns with decoupled N-Tier architecture (Presentation, API, BAL, DAL), EF Core Fluent API, and Vitest/xUnit test coverage.',
+      isFeatured: false,
+      isPublished: true,
+      displayOrder: 4,
+      createdAt: '2026-03-15T00:00:00Z',
+      githubUrl: 'https://github.com/chetanlokhande007/chetan-lokhande-portfolio',
+      technologies: [
+        { id: 1, name: 'Angular 21', category: 'Frontend' },
+        { id: 3, name: 'ASP.NET Core', category: 'Backend' },
+        { id: 6, name: 'PostgreSQL', category: 'Database' },
+        { id: 7, name: 'xUnit & Moq', category: 'Testing' }
       ]
     }
   ];
+
+  featuredProject = computed(() => {
+    const list = this.projects();
+    return list.find(p => p.isFeatured) || list[0] || null;
+  });
+
+  otherProjects = computed(() => {
+    const list = this.projects();
+    const featured = this.featuredProject();
+    if (!featured) return list;
+    return list.filter(p => p.id !== featured.id);
+  });
 
   ngOnInit() {
     this.loadProjects();

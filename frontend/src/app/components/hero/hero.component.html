@@ -1,82 +1,112 @@
 <section id="hero" class="hero-section">
+  <!-- Subtle background ambient glows and dot grid -->
+  <div class="hero-bg-glow hero-bg-glow-left"></div>
+  <div class="hero-bg-glow hero-bg-glow-right"></div>
+
   <div class="container hero-container">
     <div class="hero-grid">
       <!-- Left Column: Professional Narrative & CTAs -->
       <div class="hero-content">
-        <div class="hero-status-pill">
-          <span class="pill-dot"></span>
-          <span>Full Stack Developer Intern &bull; RBIS Technology</span>
-        </div>
+        <p class="hero-greeting">Hello, I'm</p>
         
         <h1 class="hero-title">
-          Chetan <span class="highlight">Lokhande</span>
+          Chetan Lokhande
         </h1>
 
         <p class="hero-subtitle">
-          ASP.NET Full Stack Developer
+          Software Developer
         </p>
 
         <p class="hero-desc">
-          Master of Computer Application (MCA) scholar and developer intern building responsive, 
-          database-driven web applications and secure RESTful APIs using 
-          <strong>Angular</strong>, <strong>C# ASP.NET Core</strong>, <strong>Entity Framework Core</strong>, 
-          and <strong>PostgreSQL / SQL Server</strong>.
+          I build modern web applications, APIs and database-driven systems using 
+          <strong>Angular</strong>, <strong>ASP.NET Core</strong> and cloud technologies. 
+          I enjoy solving real-world problems and creating clean, scalable and user-friendly software.
         </p>
 
+        <!-- Primary Action Buttons -->
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">
-            View Projects
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
+            View My Projects
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </a>
 
-          <a href="Chetan-Lokhande-Resume.pdf" download="Chetan-Shantaram-Lokhande-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
+          <a href="#contact" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-            Download CV
-          </a>
-
-          <a href="#contact" class="btn btn-outline">
             Contact Me
           </a>
         </div>
 
-        <div class="hero-tech-strip">
-          <span class="tech-strip-label">Stack:</span>
-          <div class="tech-strip-items">
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">ASP.NET Core</span>
-            <span class="tech-tag">EF Core</span>
-            <span class="tech-tag">Angular</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">SQL Server</span>
-          </div>
+        <!-- Social Connections -->
+        <div class="hero-socials">
+          <a 
+            href="https://github.com/chetanlokhande007" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="social-icon-btn" 
+            aria-label="GitHub Profile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+
+          <a 
+            href="https://www.linkedin.com/in/chetan-lokhande-83139a290" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="social-icon-btn" 
+            aria-label="LinkedIn Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.76v8.37H6.46v-8.37M7.84 6.2a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
+            </svg>
+          </a>
+
+          <a 
+            href="mailto:chetanlokhande4206@gmail.com" 
+            class="social-icon-btn" 
+            aria-label="Email Chetan Lokhande">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- Right Column: Professional Portrait -->
+      <!-- Right Column: Circular Portrait Presentation with Glowing Ring & Floating Badges -->
       <div class="hero-visual">
-        <div class="photo-frame">
-          <div class="photo-glow"></div>
-          <div class="photo-wrapper">
+        <!-- Background Dot Grid Matrices -->
+        <div class="dot-matrix dot-matrix-top" aria-hidden="true"></div>
+        <div class="dot-matrix dot-matrix-bottom" aria-hidden="true"></div>
+
+        <div class="avatar-presentation">
+          <div class="avatar-glow"></div>
+          
+          <div class="avatar-circle">
             <img 
               src="chetan-lokhande.jpg" 
-              alt="Chetan Shantaram Lokhande - ASP.NET Full Stack Developer" 
-              class="profile-photo"
+              alt="Chetan Lokhande - Software Developer" 
+              class="avatar-image"
               loading="eager"
             />
           </div>
-          <div class="photo-badge">
-            <span class="badge-icon">&lt;/&gt;</span>
-            <div class="badge-text">
-              <strong>ASP.NET &bull; Angular</strong>
-              <small>N-Tier Architecture</small>
+
+          <!-- Top-Left Floating Code Badge -->
+          <div class="floating-badge badge-code" aria-hidden="true">
+            <span class="code-symbol">&lt;/&gt;</span>
+          </div>
+
+          <!-- Bottom-Right Floating Status Pill -->
+          <div class="floating-badge badge-status">
+            <span class="status-indicator-dot"></span>
+            <div class="status-copy">
+              <strong>Passionate about</strong>
+              <span>Building Software &amp; Learning New Tech</span>
             </div>
           </div>
         </div>

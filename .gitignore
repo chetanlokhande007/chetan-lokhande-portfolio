@@ -1,55 +1,68 @@
 # ─────────────────────────────────────────────
-# .NET Build Output
+# .NET Build Output & Cache
 # ─────────────────────────────────────────────
+bin/
+obj/
 **/bin/
 **/obj/
 *.user
+**/*.user
 *.suo
+**/*.suo
 *.userosscache
 *.sln.docstates
 
 # ─────────────────────────────────────────────
-# Secrets — NEVER commit these
+# Secrets & Environment Files — NEVER commit secrets
 # ─────────────────────────────────────────────
 .env
 .env.*
+!.env.example
 appsettings.Development.json
 appsettings.Production.json
 appsettings.Staging.json
 
-# appsettings.json IS committed (no secrets allowed in it)
-# appsettings.example.json IS committed (placeholder values only)
+# Note:
+# appsettings.json IS committed with safe placeholder credentials
+# appsettings.example.json IS committed as a reference template
 
 # ─────────────────────────────────────────────
-# Node / Angular
+# Node / Angular / Frontend
 # ─────────────────────────────────────────────
 node_modules/
+**/node_modules/
 dist/
+**/dist/
 .angular/
+**/.angular/
 *.js.map
 
 # ─────────────────────────────────────────────
-# IDE
+# IDE & Tooling
 # ─────────────────────────────────────────────
 .vs/
+**/.vs/
 .vscode/
+**/.vscode/
 .idea/
-*.suo
+**/.idea/
 *.ntvs*
 *.njsproj
 *.sln.user
 
 # ─────────────────────────────────────────────
-# OS
+# OS-Specific
 # ─────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 desktop.ini
 
 # ─────────────────────────────────────────────
-# Test Output
+# Test Results & Code Coverage
 # ─────────────────────────────────────────────
 TestResults/
+**/TestResults/
 coverage/
+**/coverage/
 *.coverage
 *.coveragexml

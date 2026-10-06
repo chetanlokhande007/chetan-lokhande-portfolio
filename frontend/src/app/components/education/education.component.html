@@ -1,33 +1,29 @@
-<section id="education" class="education-section">
-  <div class="container">
-    <span class="section-tag">// 05. Academic Background</span>
-    <h2 class="section-title">Education & Qualifications</h2>
-    <p class="section-desc">
-      Formal academic foundation in Computer Science, software engineering fundamentals, and computer applications.
-    </p>
+<div class="education-column">
+  <span class="section-tag">EDUCATION</span>
+  <h2 class="section-title section-title-light">Academic Background</h2>
 
-    <div class="education-grid">
-      @for (item of educationList; track item.degree) {
-        <div class="education-card" [class.featured-card]="item.isOngoing">
-          <div class="card-header">
-            <div class="degree-info">
-              <div class="title-row">
-                <h3 class="degree-title">{{ item.degree }}</h3>
-                @if (item.isOngoing) {
-                  <span class="badge badge-ongoing">In Progress</span>
-                }
-              </div>
+  <div class="education-list">
+    @for (item of educationList; track item.degree) {
+      <div class="education-card">
+        <div class="education-icon-wrapper">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+
+        <div class="education-content">
+          <div class="education-header">
+            <div>
+              <h3 class="degree-title">{{ item.degree }}</h3>
               <h4 class="institution-name">{{ item.institution }}</h4>
-              @if (item.location) {
-                <span class="location-text">📍 {{ item.location }}</span>
-              }
             </div>
-            <div class="year-badge">{{ item.year }}</div>
+            <span class="year-badge">{{ item.year }}</span>
           </div>
 
           @if (item.grade) {
             <div class="grade-pill">
-              <span class="grade-label">Academic Score:</span>
+              <span class="grade-label">Academic Distinction:</span>
               <span class="grade-value">{{ item.grade }}</span>
             </div>
           }
@@ -36,7 +32,7 @@
             <p class="education-desc">{{ item.highlight }}</p>
           }
         </div>
-      }
-    </div>
+      </div>
+    }
   </div>
-</section>
+</div>

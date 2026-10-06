@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { TechnologyService } from '../../core/services/technology.service';
 import { Technology } from '../../core/models/technology.model';
 
-interface SkillGroup {
-  category: string;
-  description: string;
-  skills: string[];
+export interface SkillCategoryCard {
+  title: string;
+  technologies: string;
+  colorClass: string;
+  iconType: 'frontend' | 'backend' | 'database' | 'cloud' | 'tools' | 'other';
 }
 
 @Component({
@@ -20,31 +21,42 @@ export class SkillsComponent implements OnInit {
   private readonly techService = inject(TechnologyService);
   apiTechnologies = signal<Technology[]>([]);
 
-  readonly skillGroups: SkillGroup[] = [
+  readonly skillCards: SkillCategoryCard[] = [
     {
-      category: 'Backend & Frameworks',
-      description: 'Layered architectures, high-integrity APIs, and business services',
-      skills: ['C#', 'ASP.NET Core', 'ASP.NET Web API', 'Entity Framework Core', 'RESTful APIs', 'MVC Architecture', 'JWT Authentication', 'N-Tier Architecture']
+      title: 'Frontend',
+      technologies: 'Angular, React, TypeScript, HTML, CSS, JavaScript, Vite',
+      colorClass: 'color-blue',
+      iconType: 'frontend'
     },
     {
-      category: 'Frontend Engineering',
-      description: 'Single-Page Applications with responsive and modular UI components',
-      skills: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'RxJS']
+      title: 'Backend',
+      technologies: 'ASP.NET Core, C#, REST APIs, Entity Framework Core',
+      colorClass: 'color-green',
+      iconType: 'backend'
     },
     {
-      category: 'Programming Languages',
-      description: 'Strong foundation in object-oriented and systems programming',
-      skills: ['C#', 'SQL', 'C++', 'Python', 'PHP', 'C']
+      title: 'Database',
+      technologies: 'PostgreSQL, SQL Server, MySQL',
+      colorClass: 'color-purple',
+      iconType: 'database'
     },
     {
-      category: 'Databases & Storage',
-      description: 'Relational data modeling, query optimization, and schema management',
-      skills: ['SQL Server', 'PostgreSQL', 'MySQL', 'MongoDB', 'EF Core Migrations']
+      title: 'Cloud & DevOps',
+      technologies: 'Azure, Git, GitHub',
+      colorClass: 'color-orange',
+      iconType: 'cloud'
     },
     {
-      category: 'Tools & Platforms',
-      description: 'Development environments, API testing, and database administration tools',
-      skills: ['Visual Studio 2022', 'VS Code', 'Git', 'GitHub', 'Postman', 'Swagger', 'SSMS', 'pgAdmin', 'MongoDB Compass']
+      title: 'Tools',
+      technologies: 'Visual Studio, VS Code, Postman, Swagger',
+      colorClass: 'color-pink',
+      iconType: 'tools'
+    },
+    {
+      title: 'Other',
+      technologies: 'Twilio, Authentication, API Integration, N-Tier Architecture',
+      colorClass: 'color-teal',
+      iconType: 'other'
     }
   ];
 
@@ -52,7 +64,7 @@ export class SkillsComponent implements OnInit {
     this.techService.getTechnologies().subscribe({
       next: (techs) => this.apiTechnologies.set(techs),
       error: () => {
-        // Silently preserve static profile stack if backend is offline
+        // Silently preserve verified profile stack if backend is offline
       }
     });
   }
