@@ -69,6 +69,12 @@
   border-color: rgba(15, 23, 42, 0.15);
 }
 
+.icon-phone {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border-color: rgba(22, 163, 74, 0.2);
+}
+
 .contact-card-info {
   display: flex;
   flex-direction: column;

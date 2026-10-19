@@ -64,8 +64,7 @@
                 </span>
               </div>
 
-              <!-- Application Visual Mockup Frame -->
-              <div class="project-mockup-frame">
+              <div class="project-mockup-frame fintrust-animated">
                 <div class="mockup-header-bar">
                   <div class="mockup-dots">
                     <span class="mockup-dot red"></span>
@@ -78,26 +77,48 @@
                   <div class="mockup-sidebar">
                     <div class="mockup-side-item active"></div>
                     <div class="mockup-side-item"></div>
-                    <div class="mockup-side-item"></div>
+                    <div class="mockup-side-item pulse-item"></div>
                   </div>
                   <div class="mockup-content">
                     <div class="mockup-metric-row">
                       <div class="mockup-metric-card">
-                        <small>Total Deposits</small>
-                        <strong>₹ 4,500,000</strong>
+                        <small>Total Active FDs</small>
+                        <strong style="color: #3b82f6;" class="counter-anim">30</strong>
                       </div>
                       <div class="mockup-metric-card">
-                        <small>Interest Calc</small>
-                        <strong class="highlight-text">7.85% p.a.</strong>
+                        <small>Total Principal</small>
+                        <strong style="color: #10b981;">₹<span class="principal-anim">2,491,800</span></strong>
+                      </div>
+                      <div class="mockup-metric-card">
+                        <small>Accrued Interest</small>
+                        <strong style="color: #8b5cf6;" class="accrual-anim">₹124,220.52</strong>
+                      </div>
+                      <div class="mockup-metric-card maturity-card">
+                        <small>Maturing Month</small>
+                        <strong style="color: #f97316;" class="maturity-anim">0</strong>
                       </div>
                     </div>
-                    <div class="mockup-chart-preview">
-                      <div class="chart-bar h-40"></div>
-                      <div class="chart-bar h-65"></div>
-                      <div class="chart-bar h-90"></div>
-                      <div class="chart-bar h-55"></div>
-                      <div class="chart-bar h-80"></div>
-                      <div class="chart-bar h-100"></div>
+                    
+                    <div class="mockup-lower-section">
+                      <div class="mockup-table-preview">
+                        <div class="table-row table-header">
+                          <div class="t-col">ID</div><div class="t-col">Amount</div><div class="t-col">Status</div>
+                        </div>
+                        <div class="table-row table-data row-anim-1">
+                          <div class="t-col">FD-01</div><div class="t-col">₹500K</div><div class="t-col"><span class="t-badge green">Active</span></div>
+                        </div>
+                        <div class="table-row table-data row-anim-2">
+                          <div class="t-col">FD-02</div><div class="t-col">₹150K</div><div class="t-col"><span class="t-badge orange status-anim">Pending</span></div>
+                        </div>
+                      </div>
+                      <div class="mockup-chart-preview chart-animated">
+                        <div class="chart-bar h-40 bar-anim-1"></div>
+                        <div class="chart-bar h-65 bar-anim-2"></div>
+                        <div class="chart-bar h-90 bar-anim-3"></div>
+                        <div class="chart-bar h-55 bar-anim-4"></div>
+                        <div class="chart-bar h-80 bar-anim-5"></div>
+                        <div class="chart-bar h-100 bar-anim-6"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -143,21 +164,92 @@
             <article class="project-card">
               <!-- Application Preview Header -->
               <div class="project-card-preview">
-                <div class="card-preview-mockup">
-                  <div class="preview-mini-header">
-                    <span class="preview-mini-dot"></span>
-                    <span class="preview-mini-dot"></span>
-                    <span class="preview-mini-dot"></span>
-                  </div>
-                  <div class="preview-mini-content">
-                    <div class="preview-line w-75"></div>
-                    <div class="preview-line w-50"></div>
-                    <div class="preview-boxes">
-                      <div class="preview-box"></div>
-                      <div class="preview-box"></div>
+                @if (project.slug === 'leavetrack-management') {
+                  <div class="card-preview-mockup hr-dashboard">
+                    <div class="hr-sidebar">
+                      <div class="hr-avatar"></div>
+                      <div class="hr-nav-item active"></div>
+                      <div class="hr-nav-item"></div>
+                    </div>
+                    <div class="hr-content">
+                      <div class="hr-header">
+                        <div class="hr-title-bar"></div>
+                        <div class="hr-stats">
+                          <div class="hr-stat val-present">42</div>
+                          <div class="hr-stat val-absent">3</div>
+                        </div>
+                      </div>
+                      <div class="hr-body">
+                        <div class="hr-chart-container">
+                          <div class="hr-chart-bar" style="height: 60%"></div>
+                          <div class="hr-chart-bar" style="height: 80%"></div>
+                          <div class="hr-chart-bar" style="height: 40%"></div>
+                          <div class="hr-chart-bar hr-chart-anim" style="height: 20%"></div>
+                        </div>
+                        <div class="hr-leave-table">
+                          <div class="hr-leave-row"><div class="hr-leave-date"></div><div class="hr-leave-badge badge-anim">Pending</div></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                } @else if (project.slug === 'proptrail-property-system') {
+                  <div class="card-preview-mockup prop-dashboard">
+                    <div class="prop-map-area">
+                      <div class="prop-map-marker map-anim-1" style="top: 20%; left: 30%"></div>
+                      <div class="prop-map-marker map-anim-2" style="top: 60%; left: 70%"></div>
+                      <div class="prop-map-marker pulse-marker" style="top: 40%; left: 50%"></div>
+                    </div>
+                    <div class="prop-cards">
+                      <div class="prop-card prop-anim-card-1">
+                        <div class="prop-img"></div>
+                        <div class="prop-details"><div class="prop-line"></div><div class="prop-price"></div></div>
+                      </div>
+                      <div class="prop-card prop-anim-card-2">
+                        <div class="prop-img"></div>
+                        <div class="prop-details"><div class="prop-line"></div><div class="prop-price"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                } @else if (project.slug === 'portfolio-architecture') {
+                  <div class="card-preview-mockup arch-dashboard">
+                    <div class="arch-nodes">
+                      <div class="arch-node ui-node">UI</div>
+                      <div class="arch-line line-anim-1"></div>
+                      <div class="arch-node api-node">API</div>
+                      <div class="arch-line line-anim-2"></div>
+                      <div class="arch-node db-node">DB</div>
+                    </div>
+                    <div class="arch-stats">
+                      <div class="arch-coverage">
+                        <svg viewBox="0 0 36 36" class="circular-chart blue">
+                          <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                          <path class="circle-anim" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <div class="coverage-text">98%</div>
+                      </div>
+                      <div class="arch-terminal">
+                        <div class="term-line">PASS test_api.cs</div>
+                        <div class="term-line term-anim">PASS test_bal.cs</div>
+                      </div>
+                    </div>
+                  </div>
+                } @else {
+                  <div class="card-preview-mockup">
+                    <div class="preview-mini-header">
+                      <span class="preview-mini-dot"></span>
+                      <span class="preview-mini-dot"></span>
+                      <span class="preview-mini-dot"></span>
+                    </div>
+                    <div class="preview-mini-content">
+                      <div class="preview-line w-75"></div>
+                      <div class="preview-line w-50"></div>
+                      <div class="preview-boxes">
+                        <div class="preview-box"></div>
+                        <div class="preview-box"></div>
+                      </div>
+                    </div>
+                  </div>
+                }
               </div>
 
               <div class="project-card-body">
